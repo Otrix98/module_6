@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">module_6.1</string>
+    <string name="text_view">Введите логин и пароль:</string>
+    <string name="name_hintMail">Введите E-Mail:</string>
+    <string name="name_hintPass">Введите пароль:</string>
+    <string name="checkbox">Принимаю пользовательское соглашение</string>
+    <string name="button">Login</string>
+    <string name="hello_action">Логин прошел успешно</string>
+
+</resources>
