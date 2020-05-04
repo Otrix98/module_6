@@ -16,20 +16,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textView = findViewById<TextView>(R.id.textView)
+
         val editMail = findViewById<EditText>(R.id.editTextMail)
         val editPass = findViewById<EditText>(R.id.editTextPass)
         val checkBox = findViewById<CheckBox>(R.id.checkBox)
         val button = findViewById<Button>(R.id.button)
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
-        var isEnabled1 = false
-        var isEnabled2 = false
-        var isEnabled3 = false
 
-        fun isEnabled (): Boolean {
-            return isEnabled1  && isEnabled2 && isEnabled3
-        }
+
+
+
 
         editMail.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -107,4 +103,10 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+var isEnabled1 = false
+var isEnabled2 = false
+var isEnabled3 = false
 
+fun isEnabled (): Boolean {
+        return isEnabled1  && isEnabled2 && isEnabled3
+    }
