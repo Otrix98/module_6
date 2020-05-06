@@ -3,8 +3,10 @@
     <string name="text_view">Введите логин и пароль:</string>
     <string name="name_hintMail">Введите E-Mail:</string>
     <string name="name_hintPass">Введите пароль:</string>
-    <string name="checkbox">Принимаю пользовательское соглашение</string>
+    <string name="checkbox">Принимаю соглашения</string>
     <string name="button">Login</string>
     <string name="hello_action">Логин прошел успешно</string>
+    <string name="image">Image</string>
+
 
 </resources>
