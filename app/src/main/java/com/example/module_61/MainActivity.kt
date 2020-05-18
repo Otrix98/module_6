@@ -20,24 +20,36 @@ class MainActivity : AppCompatActivity() {
 
     private val tag = "Main Activity"
 
+    fun updateErrorText() {
+        if (formValid.valid) {
+            errorText.text= " "
+            errorText.visibility = View.GONE
+        } else if(!formValid.valid && checkBox.isChecked ){
+            errorText.visibility = View.VISIBLE
+            errorText.text= formValid.message
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(savedInstanceState != null){
-            formValid = savedInstanceState.getParcelable<FormState>(KEY_VALID) ?: error("Unexpected state")
+
+        if (savedInstanceState != null) {
+            formValid =
+                savedInstanceState.getParcelable<FormState>(KEY_VALID) ?: error("Unexpected state")
 
         }
 
-        val addError = TextView(this).apply {
-            text = formValid.message
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply {
-                gravity = Gravity.CENTER
-            }
-        }
+//        val addError = TextView(this).apply {
+//            text = formValid.message
+//            layoutParams = LinearLayout.LayoutParams(
+//                LinearLayout.LayoutParams.WRAP_CONTENT,
+//                LinearLayout.LayoutParams.WRAP_CONTENT
+//            ).apply {
+//                gravity = Gravity.CENTER
+//            }
+//        }
 
 
         Log.v(tag, "OnCreatewas called")
@@ -123,15 +135,18 @@ class MainActivity : AppCompatActivity() {
                 button.isEnabled = false
                 Toast.makeText(this, R.string.hello_action, Toast.LENGTH_SHORT).show()
             }, 2000)
-            conteiner.removeView(addError)
-            formValid.valid = false
+//            conteiner.removeView(addError)
+//            errorText.text= " "
+//            errorText.visibility = View.GONE
+            formValid.valid = true
+            updateErrorText()
 
         }
 
 
 
         button.setOnClickListener {
-            if(editMail.text.toString().contains("@")){
+            if(editMail.text.toString().contains("@") && checkBox.isChecked){
             formValid.valid = true }
 
         if(formValid.valid){
@@ -139,11 +154,35 @@ class MainActivity : AppCompatActivity() {
             editPass.setText("")
             loginOperation()
         }else {
-            conteiner.addView(addError) }
-    }
+            updateErrorText()
+//            errorText.visibility = View.VISIBLE
+//            errorText.text= formValid.message
+//            conteiner.addView(addError) }
+    }}
 
 
         }
+
+    override fun onResume() {
+        super.onResume()
+        Log.v(tag, "OnResumeewas called")
+        updateErrorText()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.v(tag, "OnPausewas called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.v(tag, "OnStopwas called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.v(tag, "OnDestroywas called")
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
