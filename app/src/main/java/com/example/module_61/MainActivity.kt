@@ -1,5 +1,6 @@
 package com.example.module_61
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -7,12 +8,14 @@ import android.os.PersistableBundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.Patterns
 import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.core.view.marginTop
 import com.afollestad.vvalidator.form
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.reflect.KClass
 
 class MainActivity : AppCompatActivity() {
 
@@ -146,8 +149,19 @@ class MainActivity : AppCompatActivity() {
 
 
         button.setOnClickListener {
-            if(editMail.text.toString().contains("@") && checkBox.isChecked){
+            val isEmailValid:Boolean = Patterns.EMAIL_ADDRESS.matcher(editMail.text.toString()).matches()
+            if(isEmailValid && checkBox.isChecked){
             formValid.valid = true }
+
+
+            val secondActivityIntent = Intent(
+                this,
+                SecondActivity::class.java
+            )
+            startActivity(secondActivityIntent)
+
+
+
 
         if(formValid.valid){
             editMail.setText("")

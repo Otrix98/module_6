@@ -8,6 +8,8 @@
     <string name="hello_action">Логин прошел успешно</string>
     <string name="image">Image</string>
     <string name="errorString">%1$s</string>
+    <string name="name_hintPhone">Введите телефон</string>
+    <string name="call">Call</string>
 
 
 </resources>
