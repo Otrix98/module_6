@@ -33,9 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
 
         if (savedInstanceState != null) {
@@ -143,6 +145,7 @@ class MainActivity : AppCompatActivity() {
 //            errorText.visibility = View.GONE
             formValid.valid = true
             updateErrorText()
+            finish()
 
         }
 
