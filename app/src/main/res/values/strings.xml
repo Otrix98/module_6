@@ -9,7 +9,14 @@
     <string name="image">Image</string>
     <string name="errorString">%1$s</string>
     <string name="name_hintPhone">Введите телефон</string>
-    <string name="call">Call</string>
+    <string name="List_item">List item</string>
+    <string name="List_item1">List item 1</string>
+    <string name="List_item2">List item 2</string>
+    <string name="List_item3">List item 3</string>
+    <string name="List_item4">List item 4</string>
+    <string name="List_item5">List item 5</string>
+    <string name="List_item6">List item 6</string>
+    <string name="List_item7">List item 7</string>
 
 
 </resources>
