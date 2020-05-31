@@ -40,8 +40,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), ItemSelectListen
    fun showMainFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, MainFragment())
-//            .addToBackStack(null)
+            .addToBackStack(null)
             .commit()
+
     }
 
     override fun onItemSelected(text: String) {
