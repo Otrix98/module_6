@@ -39,26 +39,12 @@ class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
     }
 
     }
-//    fun addDetail() {
-//        childFragmentManager.beginTransaction()
-//            .add(R.id.container_main, DetailFragment.newInstance(text()))
-//            .addToBackStack(null)
-//            .commit()
-//    }
-//    fun text(): String{
-//        var text : String = "text"
-//        view.let { it as ViewGroup }
-//            .children
-//            .mapNotNull { it as? TextView }
-//            .forEach { text = it.text.toString()}
-//        return text
-//    }
 
     override fun onItemSelected(text: String) {
         childFragmentManager.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            .add(R.id.container_main, DetailFragment.newInstance(text))
             .addToBackStack(null)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .replace(R.id.container_main, DetailFragment.newInstance(text))
             .commit()
 
 
