@@ -33,7 +33,7 @@ class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
         if (!tabletSize) {
         childFragmentManager.beginTransaction()
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .add(R.id.container_main, ListFragment())
+            .replace(R.id.container_main, ListFragment())
             .addToBackStack(null)
             .commit()
     }
@@ -49,6 +49,7 @@ class MainFragment: Fragment(R.layout.fragment_main), ItemSelectListener {
 
 
     }
+
 
     }
 

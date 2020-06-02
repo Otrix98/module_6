@@ -40,12 +40,23 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), ItemSelectListen
    fun showMainFragment() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, MainFragment())
-            .addToBackStack(null)
             .commit()
 
     }
 
     override fun onItemSelected(text: String) {
 
+    }
+
+    override fun onBackPressed() {
+        val mainFragment = supportFragmentManager.findFragmentById(R.id.container)
+        val  childFragment = mainFragment?.childFragmentManager
+            ?.findFragmentById(R.id.container_main)
+        (childFragment as? ListFragment)?.let {
+            finish()
+        }
+        mainFragment?.childFragmentManager?.beginTransaction()
+            ?.replace(R.id.container_main, ListFragment())
+            ?.commit()
     }
 }
